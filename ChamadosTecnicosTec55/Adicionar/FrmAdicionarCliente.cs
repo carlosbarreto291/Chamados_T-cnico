@@ -47,13 +47,54 @@ namespace ChamadosTecnicosTec55.Adicionar
             if (string.IsNullOrWhiteSpace(txbNome.Text) ||
                 string.IsNullOrWhiteSpace(txbObs.Text) ||
                 string.IsNullOrWhiteSpace(txbProfissao.Text) ||
-                string.IsNullOrWhiteSpace(txbSetor.Text)) ||
+                string.IsNullOrWhiteSpace(txbSetor.Text)) 
             {
-
-
-
+                MessageBox.Show("campos em branco obrigatorio");
+            }
+            else 
+            {
+                // toda vez que mexer com bd usar try
+                try 
+                {
+                    //preenche o objeto cliente
+                    cliente.Nome = txbNome.Text;
+                    cliente.Profissao = txbProfissao.Text;
+                    cliente.Obs = txbObs.Text;
+                    cliente.setor = txbSetor.Text;
+                    
+                    //chama o dao para incluir o paciente 9
+                    clientedao.IncluiCliente(cliente);
+                
+                
+                
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("erro ao cadastrar"+ex,"atencao",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                
+                
+                
+                
+                }
+                finally 
+                {
+                    MessageBox.Show("cadastro com sucesso !");
+                
+                
+                
+                }
+               
+                   
+                
+                
+                
+            
             }
 
+
+
+                  
 
 
            

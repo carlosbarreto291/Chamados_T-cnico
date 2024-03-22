@@ -29,7 +29,7 @@ namespace Data
         { 
             using(SqlConnection conexaoBd = new SqlConnection(_conexao))
             {
-                string sql = "insert into Clientes (nome,profissao,setor) values (@nome,@profissao,@setor,@obs)";
+                string sql = "insert into Clientes (nome,profissao,setor,obs) values (@nome,@profissao,@setor,@obs)";
                 using (SqlCommand comando = new SqlCommand (sql, conexaoBd)) 
                 {
                     comando.Parameters.AddWithValue("@nome", cliente.Nome);

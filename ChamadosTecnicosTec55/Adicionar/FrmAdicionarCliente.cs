@@ -64,10 +64,15 @@ namespace ChamadosTecnicosTec55.Adicionar
                     
                     //chama o dao para incluir o paciente 9
                     clientedao.IncluiCliente(cliente);
-                
-                
-                
-                }catch(Exception ex)
+
+                    MessageBox.Show("cadastro com sucesso !");
+
+                    this.Close();
+
+
+
+                }
+                catch(Exception ex)
                 {
                     MessageBox.Show("erro ao cadastrar"+ex,"atencao",
                                     MessageBoxButtons.OK,
@@ -77,13 +82,13 @@ namespace ChamadosTecnicosTec55.Adicionar
                 
                 
                 }
-                finally 
-                {
-                    MessageBox.Show("cadastro com sucesso !");
+               
+                
+                  
                 
                 
                 
-                }
+                
                
                    
                 
@@ -98,6 +103,11 @@ namespace ChamadosTecnicosTec55.Adicionar
 
 
            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

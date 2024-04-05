@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data; // ADO.net
-using System.Data.SqlClient; // ADO para SQL SERVER
+using System.Data.SqlClient;
+using System.Xml.Schema; // ADO para SQL SERVER
 
 namespace Data
 {
@@ -46,5 +47,45 @@ namespace Data
 
             }
         }
+        public DataSet buscacliente (string pesquisa = "") 
+        {
+            // constante con o Código SQL que faz bussca a partir do texto 
+            const string query = "select * From Clientes Were Nome Like @Pesquisa";
+
+
+            //Validar erros
+            try 
+            {
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaoBd))
+                using (var adaptador = new SqlDataAdapter(comando)) 
+                {
+                    string parametroPesquisa = $"%{pesquisa}%";
+                    comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+                    conexaoBd.Open();
+                    var dsclientes = new DataSet();
+                    adaptador.Fill(dsclientes, "clientes");
+                    return dsclientes;
+
+                }
+
+
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception($"Erro ao buscar clientes: {ex.Message}");
+            
+            
+            }
+            
+           
+
+            
+
+
+
+        }
+
+
     }
 }

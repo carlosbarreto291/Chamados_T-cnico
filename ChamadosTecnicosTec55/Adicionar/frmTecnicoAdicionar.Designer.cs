@@ -140,6 +140,7 @@
             this.label1.Size = new System.Drawing.Size(117, 31);
             this.label1.TabIndex = 9;
             this.label1.Text = "Técnico";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 

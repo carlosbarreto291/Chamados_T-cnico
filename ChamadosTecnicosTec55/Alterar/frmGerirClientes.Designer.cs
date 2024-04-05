@@ -31,7 +31,7 @@
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txbBuscar = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             // dgvCliente
             // 
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Location = new System.Drawing.Point(27, 88);
+            this.dgvCliente.Location = new System.Drawing.Point(27, 92);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(734, 272);
             this.dgvCliente.TabIndex = 0;
@@ -53,9 +53,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 31);
+            this.label1.Size = new System.Drawing.Size(180, 31);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Gerir Cliente";
+            this.label1.Text = "Gerir Clientes";
             // 
             // label2
             // 
@@ -67,12 +67,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Buscar : ";
             // 
-            // txbBuscar
+            // txtBuscar
             // 
-            this.txbBuscar.Location = new System.Drawing.Point(581, 54);
-            this.txbBuscar.Name = "txbBuscar";
-            this.txbBuscar.Size = new System.Drawing.Size(145, 20);
-            this.txbBuscar.TabIndex = 3;
+            this.txtBuscar.Location = new System.Drawing.Point(581, 54);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(145, 20);
+            this.txtBuscar.TabIndex = 3;
             // 
             // btnBuscar
             // 
@@ -82,6 +82,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "B";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnIncluir
             // 
@@ -92,6 +93,7 @@
             this.btnIncluir.TabIndex = 5;
             this.btnIncluir.Text = "Incluir Cliente";
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -122,12 +124,13 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnIncluir);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txbBuscar);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCliente);
             this.Name = "frmGerirClientes";
             this.Text = "Gerir Clientes";
+            this.Load += new System.EventHandler(this.frmGerirClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,7 +142,7 @@
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txbBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.Button btnAlterar;

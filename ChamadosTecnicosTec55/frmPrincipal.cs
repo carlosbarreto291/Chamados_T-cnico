@@ -1,4 +1,6 @@
 ﻿using ChamadosTecnicosTec55.Adicionar;
+using ChamadosTecnicosTec55.Alterar;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,10 +80,16 @@ namespace ChamadosTecnicosTec55
 
         private void técnicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formtecnico = new frmTecnicoAdicionar();
+            var frmtecnico = new frmTecnicoAdicionar();
             // Define o Formulário pai 
-            formtecnico.MdiParent = this;
-            formtecnico.Show();
+            frmtecnico.MdiParent = this;
+            frmtecnico.Show();
+        }
+
+        private void gestorDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           var tela = new frmGerirClientes();
+            tela .ShowDialog();
         }
     }
 }

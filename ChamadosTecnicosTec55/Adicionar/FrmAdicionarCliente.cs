@@ -11,23 +11,14 @@ using System.Windows.Forms;
 
 namespace ChamadosTecnicosTec55.Adicionar
 {
-    public partial class FrmAdicionarCliente : Form
+    public partial class frmAdicionarCliente : Form
     {
-        //Chamada a conexao 
+        // Chamaaa a conexão 
         string _conexao = ChamadosTecnicosTec55.Properties.Settings.Default.Conexao;
-        public FrmAdicionarCliente()
+
+        public frmAdicionarCliente()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -40,74 +31,40 @@ namespace ChamadosTecnicosTec55.Adicionar
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //cahama o objeto cliente 
+            // Chama o objeto Cliente
             Cliente cliente = new Cliente();
             ClienteDao clientedao = new ClienteDao(_conexao);
 
-            if (string.IsNullOrWhiteSpace(txbNome.Text) ||
-                string.IsNullOrWhiteSpace(txbObs.Text) ||
-                string.IsNullOrWhiteSpace(txbProfissao.Text) ||
-                string.IsNullOrWhiteSpace(txbSetor.Text)) 
+            if(string.IsNullOrWhiteSpace(txbNome.Text) || string.IsNullOrWhiteSpace(txbObs.Text) || string.IsNullOrWhiteSpace(txbProfissao.Text) || string.IsNullOrWhiteSpace(txbSetor.Text))
             {
-                MessageBox.Show("campos em branco obrigatorio");
+                MessageBox.Show("CADE OS DADOSSS ??");
             }
-            else 
+            else
             {
-                // toda vez que mexer com bd usar try
-                try 
+                // TODA VEZ QUE MEXER COM BD USAR TRY
+                try
                 {
-                    //preenche o objeto cliente
+                    // Preenche o Objeto Cliente
                     cliente.Nome = txbNome.Text;
                     cliente.Profissao = txbProfissao.Text;
                     cliente.Obs = txbObs.Text;
-                    cliente.setor = txbSetor.Text;
-                    
-                    //chama o dao para incluir o paciente 9
+                    cliente.Setor = txbSetor.Text;
+
+                    // CHAMA O DAO para incluir o cliente
                     clientedao.IncluiCliente(cliente);
 
-                    MessageBox.Show("cadastro com sucesso !");
+                    MessageBox.Show("Cadastrado com sucesso !");
 
                     this.Close();
-
-
 
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("erro ao cadastrar"+ex,"atencao",
+                    MessageBox.Show("Erro ao Cadastrar"+ex,"Atenção",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
-                
-                
-                
-                
                 }
-               
-                
-                  
-                
-                
-                
-                
-               
-                   
-                
-                
-                
-            
             }
-
-
-
-                  
-
-
-           
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

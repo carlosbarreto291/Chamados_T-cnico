@@ -13,79 +13,51 @@ namespace ChamadosTecnicosTec55.Adicionar
 {
     public partial class frmTecnicoAdicionar : Form
     {
+        // Chamaaa a conexão 
         string _conexao = ChamadosTecnicosTec55.Properties.Settings.Default.Conexao;
+
         public frmTecnicoAdicionar()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //cahama o objeto cliente 
+            // Chama o objeto Cliente
             Tecnico tecnico = new Tecnico();
-           Tecnicosdao tecnicosdao= new Tecnicosdao(_conexao);
+            TecnicoDao tecnicodao = new TecnicoDao(_conexao);
 
-            if (string.IsNullOrWhiteSpace(txtNome.Text) ||
-                string.IsNullOrWhiteSpace(txtespecialidade.Text) ||
-                string.IsNullOrWhiteSpace(txtemail.Text) ||
-                string.IsNullOrWhiteSpace(txtsenha.Text) ||
-                string.IsNullOrWhiteSpace(txtobs.Text))
+            if (string.IsNullOrWhiteSpace(txbNome.Text) || string.IsNullOrWhiteSpace(txbEspecialidade.Text) || string.IsNullOrWhiteSpace(txbEmail.Text) || string.IsNullOrWhiteSpace(txbSenha.Text) || string.IsNullOrWhiteSpace(txbObs.Text))
             {
-                MessageBox.Show("campos em branco obrigatorio");
+                MessageBox.Show("CADE OS DADOSSS ??");
             }
             else
             {
-                // toda vez que mexer com bd usar try
+                // TODA VEZ QUE MEXER COM BD USAR TRY
                 try
                 {
-                    //preenche o objeto cliente
-                    tecnico.Nome = txtNome.Text;
-                    tecnico.Especialidade = txtespecialidade.Text;
-                    tecnico.Email = txtemail.Text;
-                    tecnico.Senha = txtsenha.Text;
-                    tecnico.obs = txtobs.Text;
+                    // Preenche o Objeto Cliente
+                    tecnico.Nome = txbNome.Text;
+                    tecnico.Especialidade = txbEspecialidade.Text;
+                    tecnico.Email = txbEmail.Text;
+                    tecnico.Senha = txbSenha.Text;
+                    tecnico.Obs = txbObs.Text;
 
-                    //chama o dao para incluir o paciente 9
-                    tecnicosdao.IncluiTecnico(tecnico);
+                    // CHAMA O DAO para incluir o cliente
+                    tecnicodao.IncluiTecnico(tecnico);
 
-                    MessageBox.Show("cadastro com sucesso !");
+                    MessageBox.Show("Cadastrado com sucesso !");
 
                     this.Close();
-
-
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("erro ao cadastrar" + ex, "atencao",
+                    MessageBox.Show("Erro ao Cadastrar" + ex, "Atenção",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
-
-
-
-
                 }
-
             }
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            txtNome.Clear();
-            txtobs.Clear();
-            txtespecialidade.Clear();
-            txtsenha.Clear();
-            txtemail.Clear();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

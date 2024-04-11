@@ -50,7 +50,7 @@ namespace Data
         public DataSet buscacliente (string pesquisa = "") 
         {
             // constante con o Código SQL que faz bussca a partir do texto 
-            const string query = "select * From Clientes Were Nome Like @Pesquisa";
+            const string query = "select * From Clientes Where Nome Like @Pesquisa";
 
 
             //Validar erros

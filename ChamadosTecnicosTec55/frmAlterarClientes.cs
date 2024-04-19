@@ -26,7 +26,7 @@ namespace ChamadosTecnicosTec55
                 ClienteDao clienteDao = new ClienteDao(_conexao);
 
 
-                cliente = clienteDao.obtemCliente(codigo);
+                cliente = clienteDao.ObtemCliente(codigo);
 
 
                 //se o cliente nao foi encontrado 
@@ -64,6 +64,35 @@ namespace ChamadosTecnicosTec55
 
         private void label5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+
+            Cliente cliente = new Cliente();
+            ClienteDao clientedao = new ClienteDao(_conexao);
+
+            try
+            {
+                cliente.Nome = txtNome.Text;
+                cliente.Profissao = txtProfissao.Text;
+                cliente.Setor = txtSetor.Text;
+                cliente.Obs = txtObs.Text;
+
+                int codigo = Convert.ToInt32(txtCod.Text);
+                cliente.CodigoCliente = codigo;
+                clientedao.AlterarCliente(cliente);
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+
 
         }
     }

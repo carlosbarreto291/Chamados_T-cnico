@@ -118,6 +118,7 @@
             this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir Cliente";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmGerirClientes
             // 
@@ -133,7 +134,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCliente);
             this.Name = "frmGerirClientes";
-            this.Text = "Gerir Clientes";
+            this.Text = "c";
             this.Load += new System.EventHandler(this.frmGerirClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);

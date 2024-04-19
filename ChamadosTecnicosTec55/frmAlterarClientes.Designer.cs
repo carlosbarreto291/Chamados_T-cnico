@@ -129,6 +129,7 @@
             this.btnSair.TabIndex = 9;
             this.btnSair.Text = "ok";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // txtCod
             // 

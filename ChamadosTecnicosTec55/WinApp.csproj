@@ -79,6 +79,12 @@
     <Compile Include="frmAlterarClientes.Designer.cs">
       <DependentUpon>frmAlterarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGerirTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGerirTecnico.Designer.cs">
+      <DependentUpon>FrmGerirTecnico.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlterarClientes.resx">
       <DependentUpon>frmAlterarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGerirTecnico.resx">
+      <DependentUpon>FrmGerirTecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

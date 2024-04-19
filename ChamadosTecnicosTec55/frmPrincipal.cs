@@ -91,5 +91,10 @@ namespace ChamadosTecnicosTec55
            var tela = new frmGerirClientes();
             tela .ShowDialog();
         }
+
+        private void gestorDeChamadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -84,5 +84,34 @@ namespace ChamadosTecnicosTec55.Alterar
 
             }
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            //botao excluir
+            //selecionar data grid, capturar ID, Enviar para o DAO, Excluir
+            if(dgvCliente.SelectedRows.Count > 0) 
+            {
+                int codigo = Convert.ToInt32(dgvCliente.CurrentRow.Cells[0].Value);
+
+                var resultado = MessageBox.Show("deseja excluir ?","pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ClienteDao cliente = new ClienteDao(_conexao);
+                    cliente.Excluircliente(codigo);
+                    listarclientes();
+
+                }
+
+            
+            
+            }
+            else
+            {
+            
+            
+            }
+
+        }
     }
 }

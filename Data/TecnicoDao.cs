@@ -77,7 +77,7 @@ namespace Data
             }
 
         }
-        public Cliente ObtemTecnico(int codigoTecnico)
+        public Tecnico ObtemTecnico(int codigoTecnico)
         {
             // Definir o sql para obter o cliente
             const string query = @"select * from Tecnico where

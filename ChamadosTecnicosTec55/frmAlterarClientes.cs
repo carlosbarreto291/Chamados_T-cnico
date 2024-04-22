@@ -69,7 +69,6 @@ namespace ChamadosTecnicosTec55
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-
             Cliente cliente = new Cliente();
             ClienteDao clientedao = new ClienteDao(_conexao);
 

@@ -1,4 +1,5 @@
 ﻿using ChamadosTecnicosTec55.Adicionar;
+using ChamadosTecnicosTec55.Alterar;
 using Data;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ChamadosTecnicosTec55
 {
     public partial class FrmGerirTecnico : Form
     {
+        string _conexao = ChamadosTecnicosTec55.Properties.Settings.Default.Conexao;
         public FrmGerirTecnico()
         {
             InitializeComponent();
@@ -24,6 +26,24 @@ namespace ChamadosTecnicosTec55
             var frmaddTecnico = new frmTecnicoAdicionar();
             frmaddTecnico.Show();
         }
+        private void listartecnico()
+        {
+            //chama o cliente DAO 
+            TecnicoDao tecnicoDao = new TecnicoDao(_conexao);
+            //Captura o valor dijitado na barra de texto TXB 
+            string busca = txtBuscar.Text.ToString();
+            //chama o metodo Buscacliente do objeto 
+            DataSet ds = new DataSet();
+            ds = tecnicoDao.buscaTecnico(busca);
+            //Defini o Datasource do DataGridView
+            dgvTecnico.DataSource = ds;
+            //Defini o membro do dataset
+            dgvTecnico.DataMember = "clientes";
+
+
+
+
+        }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         { //verifique se alguma linha esta selecionada no dgv
@@ -32,12 +52,12 @@ namespace ChamadosTecnicosTec55
                 //obtem o codico do cliente da linha selecionada 
                 int codigo = Convert.ToInt32(dgvTecnico.CurrentRow.Cells[0].Value);
 
-                var frmAlterarTecnico = new frmAlterarTecnico(codigo);
-                frmAlterarTecnico.ShowDialog();
+                var frmAlterarTecnicos = new frmAlterarTecnicos(codigo);
+                frmAlterarTecnicos.ShowDialog();
 
 
                 //apos a tela fechar a listar os clientes cadastrados 
-                listarTecnico();
+                listartecnico();
 
             }
         }
@@ -56,7 +76,7 @@ namespace ChamadosTecnicosTec55
                 {
                     TecnicoDao Tecnico = new TecnicoDao(_conexao);
                     Tecnico.ExcluirTecnico(codigo);
-                    listarTecnico();
+                    listartecnico();
 
                 }
 
